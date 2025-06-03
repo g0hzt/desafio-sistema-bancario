@@ -36,7 +36,8 @@ while True:
 
             if deposito[-1] < 0:
                 print("Valor de depósito não pode ser negativo.")
-                deposito.remove(deposito[-1])
+                # Remove o valor de depósito informado para que não apareça no extrato
+                deposito.pop()
                 continue
 
             # [-1] indica que deve ser utilizada a última posição da lista
@@ -53,7 +54,7 @@ while True:
 
                 if saque[-1] < 0:
                     print("Valor de saque não pode ser negativo.")
-                    saque.remove(saque[-1])
+                    saque.pop()
                     continue
 
                 if saldo < saque[-1]:
@@ -61,7 +62,7 @@ while True:
                         "Você não possui saldo suficiente para realizar a operação."
                     )
                     # Remove o valor de saque informado para que não apareça no extrato
-                    saque.remove(saque[-1])
+                    saque.pop()
                 else:
                     if saque[-1] <= 500:
                         saldo = saldo - saque[-1]
@@ -69,7 +70,7 @@ while True:
                     else:
                         print("O limite máximo para saque é de R$ 500.00")
                         # Remove o valor de saque informado para que não apareça no extrato
-                        saque.remove(saque[-1])
+                        saque.pop()
             else:
                 print("Você atingiu o limite máximo de 3 saques por dia.")
 
